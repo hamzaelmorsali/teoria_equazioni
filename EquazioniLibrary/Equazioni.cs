@@ -46,17 +46,17 @@ namespace EquazioniLibrary
 
         public static bool IsDegree2(double a)
             {
-                bool risp = false;
+                bool risp = true;
                 if (a==0)
                 {
-                    risp = true;
+                    risp = false;
                 }
 
 
                 return risp;
 
             }
-        public static double Delta(double a,double b,double c)
+        public static string Delta(double a,double b,double c)
         {
             string risp = "";
             if (IsImpossible(a,b))
@@ -72,8 +72,22 @@ namespace EquazioniLibrary
                 risp = "il delta ha piu di una soluzione";
             }
             double d = (b * b) - 4 * a * c;
-
-            return d;
+            double x1 = -b + Math.Sqrt(d);
+            double x2 = -b - Math.Sqrt(d);
+           
+            if(d== 0)
+            {
+                risp = "eseiste solo una soluzione";
+            }
+            else if(d>0)
+            {
+                risp = "l'equazione ha 2 soluzioni";
+            }
+            else
+            {
+                risp = "il delta è impossibile";
+            }
+            return risp;
 
         }
         public static string IsDegree1(double a,double b)

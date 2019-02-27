@@ -41,16 +41,31 @@ namespace EquazioniLibrary_tests
         public void TestDelta()
         {
             double  a = 0,b=0,c=0;
-           double  respattesa = 0, resp = Equazioni.Delta(a,b,c);
+           string  respattesa = "eseiste solo una soluzione", resp = Equazioni.Delta(a,b,c);
+            Assert.AreEqual(respattesa, resp);
+        }
+        [TestMethod]
+        public void TestIsDegree2()
+        {
+            double a = 0;
+            bool respattesa = false, resp = Equazioni.IsDegree2(a);
             Assert.AreEqual(respattesa, resp);
         }
         [TestMethod]
         public void TestDelta1()
         {
-            double a = 1, b = 1, c = 1;
-            double respattesa = -3, resp = Equazioni.Delta(a, b, c);
+            double a = 4, b = -9, c = 3;
+            string respattesa = "l'equazione ha 2 soluzioni", resp = Equazioni.Delta(a, b, c);
             Assert.AreEqual(respattesa, resp);
         }
+        [TestMethod]
+        public void TestDelta3()
+        {
+            double a = 4, b = -9, c = 10;
+            string respattesa = "il delta è impossibile", resp = Equazioni.Delta(a, b, c);
+            Assert.AreEqual(respattesa, resp);
+        }
+
         [TestMethod]
         public void TestIsDegree1()
         {
